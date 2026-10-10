@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080a13">
+  <meta name="description" content="NEXORA WEB creates modern, custom websites for creators, gaming projects, portfolios, and businesses. Your vision. Our creation.">
+  <title>NEXORA WEB — Your Vision. Our Creation.</title>
+  <style>
+    :root {
+      --bg: #080a13;
+      --panel: rgba(17, 21, 39, .82);
+      --text: #f4f6ff;
+      --muted: #a3abc4;
+      --cyan: #48e7ff;
+      --purple: #a879ff;
+      --line: rgba(160, 177, 255, .17);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% 8%, rgba(43, 93, 190, .19), transparent 34rem),
+        radial-gradient(ellipse at 90% 27%, rgba(129, 56, 205, .15), transparent 32rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 10, 19, .78);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 850; letter-spacing: .08em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 39px; height: 39px; border-radius: 12px;
+      border: 1px solid rgba(72, 231, 255, .55);
+      background: linear-gradient(135deg, rgba(72, 231, 255, .17), rgba(168, 121, 255, .18));
+      color: var(--cyan); box-shadow: 0 0 24px rgba(72, 231, 255, .12); font-size: 21px;
+    }
+    .brand-name { font-size: 14px; }
+    .brand-name span { color: var(--cyan); }
+    .nav-links { display: flex; align-items: center; gap: 25px; color: var(--muted); font-size: 13px; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta, .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 12px 17px; border-radius: 12px; border: 1px solid rgba(72, 231, 255, .5);
+      background: linear-gradient(110deg, rgba(72, 231, 255, .15), rgba(168, 121, 255, .16));
+      color: var(--text); font-weight: 750; font-size: 13px; transition: transform .2s, border-color .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .nav-cta:hover, .btn:hover { transform: translateY(-2px); border-color: var(--cyan); box-shadow: 0 10px 35px rgba(72, 231, 255, .12); }
+    .btn.primary { background: linear-gradient(100deg, #42dff5, #a17aff); color: #080a13; border: 0; }
+    .btn.secondary { background: rgba(255,255,255,.025); border-color: var(--line); }
+    .hero { position: relative; padding: 100px 0 86px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 55px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--cyan); text-transform: uppercase; font-size: 11px; letter-spacing: .19em; font-weight: 800; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+    h1 { font-size: clamp(43px, 6.3vw, 76px); letter-spacing: -.065em; line-height: .99; margin: 21px 0; max-width: 720px; }
+    .gradient-text { background: linear-gradient(95deg, var(--cyan), #b8a1ff 65%, #d6a0ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { max-width: 540px; color: var(--muted); font-size: 16px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 27px; }
+    .mini-proof { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; color: var(--muted); font-size: 12px; }
+    .mini-proof span::before { content: "✦"; color: var(--cyan); margin-right: 7px; }
+    .visual-wrap { min-height: 360px; display: grid; place-items: center; position: relative; }
+    .orb { position: absolute; width: 290px; height: 290px; border-radius: 50%; background: linear-gradient(135deg, rgba(72,231,255,.2), rgba(168,121,255,.16)); filter: blur(35px); }
+    .visual-card {
+      position: relative; width: min(100%, 420px); padding: 17px; border: 1px solid rgba(139, 164, 255, .25);
+      border-radius: 23px; background: linear-gradient(145deg, rgba(22, 28, 50, .94), rgba(10, 13, 26, .92));
+      box-shadow: 0 30px 100px rgba(0,0,0,.35), 0 0 55px rgba(90, 116, 255, .1); transform: rotate(2deg);
+    }
+    .window-top { display: flex; gap: 6px; padding: 2px 0 15px; border-bottom: 1px solid var(--line); }
+    .window-top i { width: 7px; height: 7px; border-radius: 50%; background: #ff6d92; }
+    .window-top i:nth-child(2) { background: #ffce6a; } .window-top i:nth-child(3) { background: #58efb2; }
+    .mock-hero { padding: 28px 13px 24px; border-radius: 13px; margin-top: 14px; background: radial-gradient(circle at 85% 20%, rgba(168,121,255,.22), transparent 50%), linear-gradient(135deg, rgba(72,231,255,.07), rgba(168,121,255,.08)); }
+    .mock-label { color: var(--cyan); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+    .mock-title { font-size: clamp(25px, 3vw, 36px); line-height: 1.05; letter-spacing: -.04em; font-weight: 850; margin: 13px 0; }
+    .mock-desc { color: var(--muted); font-size: 11px; max-width: 240px; }
+    .mock-button { display: inline-block; margin-top: 17px; padding: 8px 12px; border-radius: 8px; color: #080a13; font-weight: 800; font-size: 10px; background: linear-gradient(100deg, var(--cyan), #b7a0ff); }
+    .mock-bars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+    .mock-bars span { height: 54px; border: 1px solid var(--line); border-radius: 9px; background: linear-gradient(135deg, rgba(72,231,255,.08), rgba(168,121,255,.07)); }
+    section { padding: 82px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    .section-kicker { color: var(--cyan); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 800; }
+    h2 { font-size: clamp(30px, 4vw, 46px); letter-spacing: -.045em; line-height: 1.1; margin: 9px 0 0; }
+    .section-desc { color: var(--muted); max-width: 450px; font-size: 14px; margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .card { padding: 23px; border: 1px solid var(--line); border-radius: 17px; background: var(--panel); transition: transform .22s, border-color .22s, background .22s; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(72,231,255,.42); background: rgba(20,25,46,.95); }
+    .icon-box { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 12px; background: rgba(72,231,255,.09); border: 1px solid rgba(72,231,255,.2); font-size: 20px; }
+    h3 { margin: 17px 0 8px; font-size: 17px; }
+    .card p { color: var(--muted); font-size: 13px; margin: 0; }
+    .portfolio-card { overflow: hidden; padding: 0; }
+    .portfolio-preview { min-height: 170px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 80% 10%, rgba(168,121,255,.32), transparent 45%), linear-gradient(135deg, #111d35, #111020); border-bottom: 1px solid var(--line); }
+    .preview-top { display: flex; justify-content: space-between; font-size: 10px; color: #dce5ff; }
+    .preview-word { font-size: 25px; font-weight: 850; letter-spacing: -.05em; max-width: 240px; line-height: 1.1; }
+    .preview-word span { color: var(--cyan); }
+    .preview-tag { font-size: 9px; color: #c3c9e1; letter-spacing: .13em; text-transform: uppercase; }
+    .portfolio-info { padding: 19px; }
+    .tag { display: inline-block; padding: 5px 8px; margin-top: 11px; font-size: 10px; border-radius: 7px; border: 1px solid var(--line); color: var(--muted); }
+    .about-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 35px; align-items: center; padding: 34px; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(120deg, rgba(72,231,255,.06), rgba(168,121,255,.07)); }
+    .about-symbol { min-height: 210px; display: grid; place-items: center; font-size: 100px; font-weight: 900; color: var(--cyan); text-shadow: 0 0 35px rgba(72,231,255,.28); border-radius: 16px; background: radial-gradient(circle, rgba(72,231,255,.09), transparent 65%); }
+    .about-panel p { color: var(--muted); font-size: 14px; }
+    .values { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .values span { border: 1px solid var(--line); border-radius: 100px; padding: 7px 11px; font-size: 11px; color: #dce3fa; }
+    .contact-panel { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: center; padding: 35px; border-radius: 22px; border: 1px solid rgba(72,231,255,.25); background: radial-gradient(ellipse at 100% 0%, rgba(168,121,255,.16), transparent 50%), rgba(14,18,34,.9); }
+    .contact-panel p { color: var(--muted); max-width: 580px; margin-bottom: 0; }
+    footer { padding: 27px 0 35px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .footer-tag { color: var(--cyan); letter-spacing: .1em; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 800px) {
+      .nav { min-height: 67px; } .nav-links { display: none; } .nav-cta { padding: 10px 12px; }
+      .hero { padding: 68px 0 55px; } .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .visual-wrap { min-height: 290px; } .visual-card { max-width: 390px; }
+      section { padding: 60px 0; } .cards { grid-template-columns: repeat(2, 1fr); }
+      .section-head { align-items: start; flex-direction: column; gap: 12px; }
+      .about-panel { grid-template-columns: 1fr; gap: 18px; padding: 22px; } .about-symbol { min-height: 130px; font-size: 76px; }
+      .contact-panel { grid-template-columns: 1fr; padding: 25px; }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .brand { gap: 8px; } .brand-mark { width: 35px; height: 35px; } .brand-name { font-size: 12px; }
+      .nav-cta { font-size: 11px; padding: 9px 10px; }
+      h1 { font-size: clamp(42px, 13vw, 62px); }
+      .hero-copy { font-size: 14px; } .hero-actions .btn { flex: 1; padding: 12px 10px; font-size: 12px; }
+      .cards { grid-template-columns: 1fr; } .card { padding: 20px; }
+      .portfolio-preview { min-height: 155px; } .contact-panel .btn { width: 100%; }
+      .mini-proof { gap: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="NEXORA WEB home">
+        <span class="brand-mark">N</span>
+        <span class="brand-name">NEXORA <span>WEB</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#about">About</a>
+      </div>
+      <a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Digital experiences, reimagined</div>
+          <h1>Your vision.<br><span class="gradient-text">Our creation.</span></h1>
+          <p class="hero-copy">We turn bold ideas into modern, memorable websites. Thoughtful design, smooth experiences, and a digital presence made to feel like you.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#portfolio">Explore our work <span aria-hidden="true">↗</span></a>
+            <a class="btn secondary" href="#services">What we do</a>
+          </div>
+          <div class="mini-proof"><span>Custom designs</span><span>Mobile-friendly</span><span>Made with care</span></div>
+        </div>
+        <div class="visual-wrap reveal" aria-label="Illustration of a futuristic website">
+          <div class="orb"></div>
+          <div class="visual-card">
+            <div class="window-top"><i></i><i></i><i></i></div>
+            <div class="mock-hero">
+              <div class="mock-label">NEXORA / DIGITAL STUDIO</div>
+              <div class="mock-title">Make your<br>next move.</div>
+              <div class="mock-desc">A bold digital home for your next big idea.</div>
+              <span class="mock-button">LET'S BUILD ↗</span>
+            </div>
+            <div class="mock-bars"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="section-kicker">What we do</div><h2>Ideas into experiences.</h2></div>
+          <p class="section-desc">From a first concept to a polished online presence, explore the kinds of websites NEXORA WEB can help create.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal"><div class="icon-box">⌘</div><h3>Custom Websites</h3><p>Unique layouts and visual styles shaped around your idea, goals, and audience.</p></article>
+          <article class="card reveal"><div class="icon-box">🎮</div><h3>Gaming Websites</h3><p>Websites for gaming communities, Minecraft projects, servers, and creators.</p></article>
+          <article class="card reveal"><div class="icon-box">▤</div><h3>Portfolio Websites</h3><p>A clean place to showcase your work, projects, skills, and creative journey.</p></article>
+          <article class="card reveal"><div class="icon-box">◈</div><h3>Business Websites</h3><p>A professional home for a brand, service, small business, or new idea.</p></article>
+          <article class="card reveal"><div class="icon-box">✦</div><h3>Landing Pages</h3><p>Focused pages that introduce a project, share key details, and guide visitors.</p></article>
+          <article class="card reveal"><div class="icon-box">＋</div><h3>And More</h3><p>Have a different idea? Tell us what you imagine and we can discuss the possibilities.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="section-kicker">Selected concepts</div><h2>Design with a purpose.</h2></div>
+          <p class="section-desc">A preview of the visual direction we love. These cards are concept examples, not completed client projects.</p>
+        </div>
+        <div class="cards">
+          <article class="card portfolio-card reveal">
+            <div class="portfolio-preview"><div class="preview-top"><span>01 / CREATOR</span><span>↗</span></div><div class="preview-word">Your story.<br><span>Your space.</span></div><div class="preview-tag">Creator portfolio concept</div></div>
+            <div class="portfolio-info"><h3>Creator Portfolio</h3><p>A personal showcase concept with a bold hero and clear project highlights.</p><span class="tag">CONCEPT DESIGN</span></div>
+          </article>
+          <article class="card portfolio-card reveal">
+            <div class="portfolio-preview" style="background:radial-gradient(circle at 15% 15%,rgba(72,231,255,.22),transparent 48%),linear-gradient(135deg,#101c30,#101020)"><div class="preview-top"><span>02 / GAMING</span><span>↗</span></div><div class="preview-word">Enter the<br><span>next level.</span></div><div class="preview-tag">Gaming community concept</div></div>
+            <div class="portfolio-info"><h3>Gaming Community</h3><p>A futuristic concept for a team, gaming community, or server project.</p><span class="tag">CONCEPT DESIGN</span></div>
+          </article>
+          <article class="card portfolio-card reveal">
+            <div class="portfolio-preview" style="background:radial-gradient(circle at 80% 10%,rgba(168,121,255,.3),transparent 48%),linear-gradient(135deg,#20162e,#101020)"><div class="preview-top"><span>03 / BUSINESS</span><span>↗</span></div><div class="preview-word">Built for<br><span>what's next.</span></div><div class="preview-tag">Business landing concept</div></div>
+            <div class="portfolio-info"><h3>Business Landing Page</h3><p>A clear, modern introduction to a service, product, or new business.</p><span class="tag">CONCEPT DESIGN</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-panel reveal">
+          <div class="about-symbol" aria-hidden="true">N<span class="gradient-text">.</span></div>
+          <div><div class="section-kicker">A little about us</div><h2>Small beginnings.<br><span class="gradient-text">Big digital ideas.</span></h2>
+            <p>NEXORA WEB is a growing creative project built around one simple belief: every idea deserves a thoughtful online home. We focus on clean visuals, useful layouts, and making the process approachable.</p>
+            <p>We're building our portfolio one project at a time. If you have an idea, we'd love to hear about it.</p>
+            <div class="values"><span>Creative thinking</span><span>Clear communication</span><span>Always learning</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div><div class="section-kicker">Have an idea?</div><h2>Let's build something<br><span class="gradient-text">worth visiting.</span></h2>
+            <p>Tell us what you're imagining, what the website should do, and the style you like. We'll reply by email to discuss the next steps.</p>
+          </div>
+          <a class="btn primary" id="email-link" href="mailto:YOUR-GMAIL@gmail.com?subject=NEXORA%20WEB%20Website%20Request">Request a website <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><span class="brand-mark">N</span><span class="brand-name">NEXORA <span>WEB</span></span></a>
+      <span class="footer-tag">YOUR VISION. OUR CREATION.</span>
+      <span>© <span id="year"></span> NEXORA WEB</span>
+    </div>
+  </footer>
+
+  <script>
+    // Update the copyright year automatically.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal sections gently as visitors scroll down.
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>
